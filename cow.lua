@@ -58,13 +58,17 @@ mobs:register_mob("mobs_animal:cow", {
 		die_speed = 10,
 		die_loop = false,
 	},
-	follow = {"farming:wheat", "default:grass_1"},
+	follow = {
+		"farming:wheat", "default:grass_1", "farming:barley",
+		"farming:oat", "farming:rye"
+	},
 	view_range = 8,
 	replace_rate = 10,
 	replace_what = {
 		{"group:grass", "air", 0},
 		{"default:dirt_with_grass", "default:dirt", -1}
 	},
+--	stay_near = {{"farming:straw", "group:grass"}, 10},
 	fear_height = 2,
 	on_rightclick = function(self, clicker)
 
@@ -156,7 +160,7 @@ minetest.register_craftitem(":mobs:bucket_milk", {
 	inventory_image = "mobs_bucket_milk.png",
 	stack_max = 1,
 	on_use = minetest.item_eat(8, "bucket:bucket_empty"),
-	groups = {food_milk = 1, flammable = 3},
+	groups = {food_milk = 1, flammable = 3, drink = 1},
 })
 
 -- glass of milk
@@ -164,7 +168,7 @@ minetest.register_craftitem(":mobs:glass_milk", {
 	description = S("Glass of Milk"),
 	inventory_image = "mobs_glass_milk.png",
 	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
-	groups = {food_milk_glass = 1, flammable = 3, vessel = 1},
+	groups = {food_milk_glass = 1, flammable = 3, vessel = 1, drink = 1},
 })
 
 minetest.register_craft({
